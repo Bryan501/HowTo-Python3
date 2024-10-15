@@ -12,3 +12,11 @@ Per pujar els apunts:
 ```bash
 git add . ; git commit -m "asd" ; git push origin master
 ```
+Borrar de manera forzada:
+```bash
+Remove-Item -Recurse -Force .git
+```
+ls -la
+```bash
+Get-ChildItem -Force
+```
