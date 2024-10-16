@@ -39,36 +39,35 @@ import random
 
 len_random = random.randint(4,6)
 p_animales = ["perro", "gato", "tigre", "cebra", "ratón", "rana", "águila", "lobo"]
-p_random = random.choice(p_animales)
+
+palabras_filtradas = []
+for palabra in p_animales:
+    if len(palabra) == len_random:
+        palabras_filtradas.append(palabra)
+
+p_random = random.choice(palabras_filtradas)
 
 print(f"La palabra secreta tiene {len_random} letras. ¡Adivina la palabra!\n"
       "Temática de animales\nTienes 5 intentos.\n")
 
-def respuesta():
-    palabra = input("Introduce tu intento: ")
-    if palabra.strip():
-       comprobar(palabra)
-    else:
+def respuesta(intentos):
+    palabra = input("Introduce tu intento: ").strip().lower()
+    if not palabra:
         print(f"deberias de introducir una cadena de texto cumpliendo el rango de palabras")
+        return respuesta(intentos)
+    comprobar(palabra, intentos)
 
-def repeticion():
- intentos = 6
- intentos -= 1
- while intentos != 0:
-  print(f"Incorrecto. Te quedan {intentos} intentos.")
-  respuesta()
-
-def comprobar(palabra):
-    if len(palabra) == len_random:
-        if palabra == p_random:
-            print(f"¡Felicidades! Has adivinado la palabra secreta: {p_random}")
-        elif palabra != p_random:
-         repeticion()
-        else:
-           pass
-        
+def comprobar(palabra, intentos):
+    if len(palabra) != len_random:
+        print(f"La palabra debe tener {len_random} letras. Inténtalo de nuevo.")
+        respuesta(intentos)
+    elif palabra == p_random:
+        print(f"¡Felicidades! Has adivinado la palabra secreta: {p_random}")
     else:
-        print(f"debes de poner una palabra que tenga {len_random} palabras")
-        respuesta()
-
-respuesta()
+        intentos -= 1
+        if intentos > 0:
+            print(f"Incorrecto. Te quedan {intentos} intentos.")
+            respuesta(intentos)
+        else:
+            print(f"¡Has agotado todos tus intentos! La palabra secreta era: {p_random}.")
+respuesta(5)
