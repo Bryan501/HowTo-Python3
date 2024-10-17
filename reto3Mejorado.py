@@ -4,7 +4,8 @@ def get_nums():
             num1 = int(input("Introduce el primer número: "))
             num2 = int(input("Introduce el segundo número: "))
             operation(num1, num2)
-            break
+            if not confirmar():
+                break
         except ValueError:
             print("ERROR: Por favor, ingrese un número entero válido.")  
 
@@ -38,9 +39,7 @@ def operation(num1, num2):
             print("ERROR: Operación no válida. Por favor, selecciona una de estas: +, -, *, /")
             continue
 
-        if not confirmar():
-            break
-    return
+        break
 
 
 get_nums()
