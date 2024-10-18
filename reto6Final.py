@@ -67,32 +67,39 @@ Seleccione una opción: 3
 ---------------------------------------------------------
 """
 
+import sys
+
+historial = []
+
 def inicio():
     while True:
         try:
-            print("\nMenú de opciones:\n1.Realizar una nueva operación\n2.Ver historial de operacione\n3.Salir\n")
-            decision = input("Seleccione una opción: ")
+            print("\n---------------------------------\n         MENÚ DE OPCIONES         \n---------------------------------\n1.Realizar una nueva operación\n2.Ver historial de operaciones\n3.Salir\n")
+            decision = int(input("Seleccione una opción: "))
             if decision == 1:
                 get_nums()
             elif decision == 2:
-                history()      
+                history()
             elif decision == 3:
-                break
-
+                print("¡Gracias por usar la calculadora!")
+                sys.exit()
+            else:
+                print("ERROR: Opción no valida.")
         except ValueError:
-            print("ERROR: Por favor, ingrese 1, 2 o 3 como indica en el texto.")  
+            print("ERROR: Por favor, ingrese 1, 2 o 3 como indica en el texto.")
 
 def get_nums():
     while True:
         try:
             num1 = int(input("Introduce el primer número: "))
             num2 = int(input("Introduce el segundo número: "))
-            operation(num1, num2)
+            resultado = operation(num1, num2)
+            print(resultado)
+            historial.append(resultado)
             if not confirmar():
-                break
-
+                sys.exit()
         except ValueError:
-            print("ERROR: Por favor, ingrese un número entero válido.")  
+            print("ERROR: Por favor, ingrese un número entero válido.")
 
 def confirmar():
     while True:
@@ -100,62 +107,39 @@ def confirmar():
         if oper == "s":
             return True
         elif oper == "n":
-            return False
+            return inicio()
         else:
             print("ERROR: Debes elegir 's' para sí o 'n' para no.")
 
 def operation(num1, num2):
     while True:
-        guardar = []
         oper = input("Selecciona la operación a realizar (+, -, *, /, ^, %): ")
         if oper == "+":
-            suma = (f"Resultado: {num1} + {num2} = {num1 + num2}")
-            print(suma)
-            guardar.append(suma)
-            history(guardar)
-
+            return f"{num1} + {num2} = {num1 + num2}"
         elif oper == "-":
-            resta = (f"Resultado: {num1} - {num2} = {num1 - num2}")
-            print(resta)
-            guardar.append(resta)
-            history(guardar)
+            return f"{num1} - {num2} = {num1 - num2}"
         elif oper == "*":
-            multi = (f"Resultado: {num1} * {num2} = {num1 * num2}")
-            print(multi)
-            guardar.append(multi)
-            history(guardar)
+            return f"{num1} * {num2} = {num1 * num2}"
         elif oper == "/":
             if num2 == 0:
                 print(f"ERROR: No se puede dividir entre cero.")
             else:
-                division = (f"Resultado: {num1} / {num2} = {int((num1 / num2))}")
-                print(division)
-                guardar.append(division)
-                history(guardar)
+                return (f"Resultado: {num1} / {num2} = {int((num1 / num2))}")
         elif oper == "^":
-            potencia = (f"Resultado: {num1} ^ {num2} = {num1 ** num2}")
-            print(potencia)
-            guardar.append(potencia)
-            history(guardar)
+            return f"{num1} ^ {num2} = {num1 ** num2}"
         elif oper == "%":
-            porcentage = (f"Resultado: {num1}% * {num2} = {int((num2 / 100 * num1))}")
-            print(porcentage)
-            guardar.append(porcentage)
-            history(guardar)
+            return f"{num1} % {num2} = {num1 % num2}"
         else:
-            print("ERROR: Operación no válida. Por favor, selecciona una de estas: +, -, *, /")
+            print("ERROR: Operación no válida.")
             continue
 
-        break
+def history():
+    print("\n---------------------------------\n   HISTORIAL DE OPERACIONES         \n---------------------------------\n1.Realizar una nueva operación\n2.Ver historial de operaciones\n3.Salir\n")
+    if historial:
+        for i, operacion in enumerate(historial, 1):
+            print(f"{i}. {operacion}")
+    else:
+        print("No hay operaciones en el historial.")
 
-def history(guardados):
-    listado = []
-
-    print("Historial de operaciones:")
-    
-    for i in guardados[2]:
-        listado.append(guardados)
-    
-    print(listado)
-
+    input("\nPresiona Enter para regresar al menú principal.")
 inicio()

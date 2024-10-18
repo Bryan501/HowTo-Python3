@@ -7,7 +7,7 @@ Descripción:
   y desafía al usuario a adivinarlo. El usuario ingresará
   sus intentos y el programa le dará pistas sobre si su
   número es mayor o menor que el número a adivinar.
-  
+
 Instrucciones:
   1. Inicia el juego y espera que se genere un número.
   2. Ingresa tu intento para adivinar el número.
@@ -45,7 +45,7 @@ while num_user < 100 and num_user > 1:
     print("El número es menor.")
     num_user = int(input("Adivina el número: "))
     trys += 1
-      
+
   elif num_user < n_aleatorio:
     print("El número es mayor.")
     num_user = int(input("Adivina el número: "))

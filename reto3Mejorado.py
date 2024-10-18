@@ -7,7 +7,7 @@ def get_nums():
             if not confirmar():
                 break
         except ValueError:
-            print("ERROR: Por favor, ingrese un número entero válido.")  
+            print("ERROR: Por favor, ingrese un número entero válido.")
 
 
 def confirmar():
