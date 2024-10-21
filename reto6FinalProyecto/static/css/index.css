@@ -1,0 +1,95 @@
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+body {
+    margin: 0;
+    color: #ffffff;
+    text-align: center;
+    margin-top: 10%;
+    background: radial-gradient(circle, rgb(5, 2, 95) 0%, rgba(3,3,55,1) 50%);
+    font-family: 'San Francisco', sans-serif;
+}
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+.calculator-form {
+    padding: 20px;
+    border-radius: 12px;
+    display: inline-block;
+    margin: 20px 0px 8px;
+    background-color: hsl(0, 0%, 16%);
+    box-shadow:
+        4px 4px 20px rgba(0, 0, 0, 0.800),
+        -5px -5px 20px rgba(192, 191, 191, 0.236);
+}
+/**//**//**//**//**//**//**/
+input {
+    border: none;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    margin: 10px 0px 8px;
+    width: calc(100% - 24px);
+    background-color: hsl(0, 0%, 100%);
+    box-shadow:
+        inset 4px 4px 20px rgba(0, 0, 0, 0.800),
+        inset -3px -3px 20px rgba(192, 191, 191, 0.236);
+}
+select {
+    padding: 9px 6px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+    margin-top: 2%;
+    margin-left: 88%;
+    border-radius: 8px;
+    background-color: #d6a801;
+    font-family: 'San Francisco', sans-serif;
+    box-shadow:
+        4px 4px 5px  rgb(0, 0, 0, 0.800),
+        -3px -3px 20px rgba(192, 191, 191, 0.236);
+}
+button {
+    margin-top: 3%;
+    color: white;
+    cursor: pointer;
+    font-size: 25px;
+    margin-left: 88%;
+    padding: 8px 18px;
+    border-radius: 8px;
+    background-color: rgb(214, 168, 1);
+    font-family: 'San Francisco', sans-serif;
+    box-shadow:
+        4px 4px 5px rgba(0, 0, 0, 0.800),
+        -3px -3px 20px rgba(192, 191, 191, 0.236);
+}
+button:hover, select:hover {
+    background-color: #825d00;
+}
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/
+h2 {
+    margin-left: 65%;
+    margin-top: -11em;
+    font-family: 'San Francisco', sans-serif;
+}
+/**//**//**//**//**//**//**/
+.resultado {
+    width: 500px;
+    height: 100px;
+    overflow: auto;
+    margin-bottom: 5px;
+    border-radius: 8px;
+    background-color: hsl(0, 0%, 16%);
+    box-shadow:
+        inset 12px 12px 20px rgba(0, 0, 0, 0.800),
+        inset -5px -5px 20px rgba(192, 191, 191, 0.236);
+}
+.resultado p {
+    display: block;
+    color: #e0e0e0;
+    font-size: 50px;
+    margin-top: 4%;
+    color: #e0e0e0;
+}
+/**//**//**//**//**//**//**/
+.historial {
+    margin-left: 955px;
+    list-style-type: none;
+}
+/**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**//**/

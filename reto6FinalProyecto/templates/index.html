@@ -1,0 +1,42 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <link rel="stylesheet" href="../static/css/index.css" />
+    <meta http-equiv="Content-Type" content="text/html; chasrset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora</title>
+</head>
+
+<body>
+    <form method="POST" class="calculator-form">
+        <div class="resultado">
+            {% if historial %}
+            <p>{{ historial[-1] }}</p>
+            {% endif %}
+        </div>
+        <input type="number" name="num1" required>
+        <input type="number" name="num2" required>
+        <br>
+        <select name="operacion" required>
+            <option value="+">+</option>
+            <option value="-">-</option>
+            <option value="*">*</option>
+            <option value="/">/</option>
+            <option value="^">^</option>
+            <option value="%">%</option>
+        </select>
+        <br>
+        <button type="submit">=</button>
+    </form>
+
+    <h2>Historial de operaciones</h2>
+    <ul class="historial">
+        {% for operacion in historial %}
+        <li>{{ operacion }}</li>
+        {% endfor %}
+    </ul>
+</body>
+
+</html>

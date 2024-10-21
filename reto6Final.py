@@ -131,7 +131,7 @@ def operation(num1, num2):
             return f"{num1} % {num2} = {num1 % num2}"
         else:
             print("ERROR: Operación no válida.")
-            continue
+
 
 def history():
     print("\n---------------------------------\n   HISTORIAL DE OPERACIONES         \n---------------------------------\n1.Realizar una nueva operación\n2.Ver historial de operaciones\n3.Salir\n")
